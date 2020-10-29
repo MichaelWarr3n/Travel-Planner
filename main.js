@@ -1,15 +1,39 @@
 const searchButton = document.getElementById('searchButton');
+const inputBox = document.getElementById('city');
 const weatherDiv = document.getElementById('Weather');
 const venueDivArray = [
     document.getElementById('Venue1'),
     document.getElementById('Venue2'),
     document.getElementById('Venue3')
 ];
-const venueDivContainer = document.getElementById('venueContainer');
+const venueDivContainer = document.getElementById('bigVenueContainer');
 const covidDiv = document.getElementById('Covid');
+const loadingThrobber = document.getElementById('loading');
+const loadingComplete = document.getElementById('complete');
 let covidCountry = '';
 let covidCountryLC = '';
+let weatherLoaded = false;
+let covidLoaded = false;
+let venuesLoaded = false;
 
+const loadingStatus = () => {
+    resetLoadBools();
+    loadingThrobber.style.display = 'flex';
+    loadingComplete.style.display = 'none';
+}
+
+const completeStatus = () => {
+    if (covidLoaded && weatherLoaded && venuesLoaded) {
+        loadingThrobber.style.display = 'none';
+        loadingComplete.style.display = 'flex';
+    }
+}
+
+const resetLoadBools = () => {
+    weatherLoaded = false;
+    covidLoaded = false;
+    venuesLoaded = false;
+}
 
 /*--- Weather API ---*/
 
@@ -68,18 +92,19 @@ const lastWeekISO = () => {
 const renderWeather = weather => {
     const htmlForm = `<h1>${weather.name}, ${weather.sys.country}</h1>
 <h2>${dateToday()}</h2>
-<h2>Temperature: ${Math.round(kelvinToCelsius(weather.main.temp))}&deg;C</h2>
-<h2>Condition: ${weather.weather[0].description}</h2>
-<h2>Sunrise: ${convertUnixTo24Hr(weather.sys.sunrise + weather.timezone)}</h2>
-<h2>Sunset: ${convertUnixTo24Hr(weather.sys.sunset + weather.timezone)}</h2>
+<p>Temperature: ${Math.round(kelvinToCelsius(weather.main.temp))}&deg;C</p>
+<p>Condition: ${weather.weather[0].description}</p>
+<p>Sunrise: ${convertUnixTo24Hr(weather.sys.sunrise + weather.timezone)}</p>
+<p>Sunset: ${convertUnixTo24Hr(weather.sys.sunset + weather.timezone)}</p>
 <img src="https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png">`;
     return htmlForm;
 }
 
 const displayWeather = weather => {
     let formattedWeather = renderWeather(weather);
-    weatherDiv.style.display = 'block';
+    weatherDiv.style.display = 'flex';
     weatherDiv.innerHTML = formattedWeather;
+    weatherLoaded = true;
 }
 
 /*--- Venues API ---*/
@@ -116,10 +141,10 @@ const renderVenues = venues => {
         let htmlForm = `<h1>${x.name}</h1>
 <p>${venueLocType}</p>
 <img src="${venueImgSrc}">
-<h2>Address:</h2>
-<p>${x.location.address}</p>
-<p>${x.location.city}</p>
-<p>${x.location.country}</p>`;
+<h2>Address:</h2>`;
+        x.location.formattedAddress.forEach(y => {
+            htmlForm += `<p>${y}</p>`;
+        })
         formattedVenues.push(htmlForm);
     });
     return formattedVenues;
@@ -127,10 +152,11 @@ const renderVenues = venues => {
 
 const displayVenues = venues => {
     let formattedVenues = renderVenues(venues);
-    venueDivContainer.style.display = 'flex';
+    venueDivContainer.style.display = 'block';
     formattedVenues.forEach((vens, index) => {
         venueDivArray[index].innerHTML = vens;
     });
+    venuesLoaded = true;
 }
 
 /*--- Covid API ---*/
@@ -145,7 +171,6 @@ const getCovid = async () => {
         });
         if (response.ok) {
             const jsonResponse = await response.json();
-            console.log(jsonResponse);
             return jsonResponse;
         } else {
             throw new Error('Request Failed!');
@@ -160,7 +185,7 @@ const sevenDayAverage = (dayOne, daySeven) => {
 }
 
 const renderCovid = covid => {
-    const htmlFormat = `<h1>New cases daily average in ${covidCountry}:</h1>
+    const htmlFormat = `<h2>Daily average of new Covid-19 cases in ${covidCountry}:</h2>
 <h1>${sevenDayAverage(covid[0].Cases, covid[6].Cases)}</h1>
 <p>(based off the last 7 days)</p>`;
     return htmlFormat;
@@ -168,16 +193,23 @@ const renderCovid = covid => {
 
 const displayCovid = cases => {
     let formattedCases = renderCovid(cases);
-    covidDiv.style.display = 'block';
+    covidDiv.style.display = 'flex';
     covidDiv.innerHTML = formattedCases;
+    covidLoaded = true;
 }
 
 /*-- Execute Search --*/
 
 const executeSearch = () => {
-    getWeather().then(weather => displayWeather(weather));
-    getVenues().then(venues => displayVenues(venues)).then(() => getCovid()).then(covid => displayCovid(covid));
+    loadingStatus();
+    getWeather().then(weather => displayWeather(weather)).then(() => completeStatus());
+    getVenues().then(venues => displayVenues(venues)).then(() => getCovid()).then(covid => displayCovid(covid)).then(() => completeStatus());
 }
 
 
 searchButton.addEventListener('click', executeSearch);
+inputBox.addEventListener('keypress', function(event) {
+    if (event.keyCode === 13) {
+        executeSearch();
+    }
+})

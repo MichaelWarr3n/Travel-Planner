@@ -1,38 +1,103 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-h1 {
-    font-size: 1.4rem;
-}
-
-h2 {
-    font-size: 1.0rem;
+.searchText h1 {
+    font-size: 26px;
 }
 
 .searchContainer {
-    padding: 2% 0;
+    padding-top: 3%;
+    padding-bottom: 1%;
     padding-left: 30px;
     margin-left: 50px;
     width: 40%;
-    background-color: rgba(40,40,40,0.8);
+    background-color: rgba(40, 40, 40, 0.8);
     border-radius: 20px;
     position: relative;
     top: 40px;
@@ -41,46 +106,93 @@ h2 {
 #Covid {
     padding: 2% 5%;
     margin: 0 50px;
-    width: 20%;
-    background-color: rgba(40,40,40,0.8);
+    width: 30%;
+    background-color: rgba(40, 40, 40, 0.8);
     border-radius: 20px;
     position: relative;
     top: 40px;
     color: white;
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Covid h2 {
+    font-size: 20px;
+}
+
+#Covid h1 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+#Covid p {
+    font-weight: 100;
 }
 
 #Weather {
     padding: 2% 5%;
     margin: 0 50px;
-    width: 30%;
-    background-color: rgba(40,40,40,0.8);
+    width: 20%;
+    background-color: rgba(40, 40, 40, 0.8);
     border-radius: 20px;
     position: relative;
     top: 40px;
     color: white;
     text-align: center;
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Weather h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#Weather h2 {
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
 #Weather img {
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
     margin-top: 10px;
+    width: 100px;
+}
+
+#bigVenueContainer {
+    position: relative;
+    top: 40px;
+    display: none;
+    padding: 2% 5%;
+    margin: 0 50px;
+    width: 60%;
+    background-color: rgba(40, 40, 40, 0.8);
+    color: white;
+    border-radius: 20px;
+}
+
+#bigVenueContainer > h1 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
 }
 
 #venueContainer {
-    padding: 2% 5%;
-    margin: 0 50px;
-    width: 50%;
-    background-color: rgba(40,40,40,0.8);
-    border-radius: 20px;
-    position: relative;
-    top: 40px;
-    color: white;
-    display: none;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.venue:nth-child(2) {
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+    margin: 0 5px;
 }
 
 .venue {
@@ -88,9 +200,26 @@ h2 {
     width: 100%;
 }
 
+.venue h1 {
+    font-size: 18px;
+}
+
+.venue h2 {
+    font-size: 16px;
+}
+
+.venue p {
+    font-size: 12px;
+}
+
+.venue img {
+    width: 60px;
+    margin: 5px 0;
+}
+
 .firstRow {
     display: flex;
-    justify-content:space-between
+    justify-content: space-between
 }
 
 .secondRow {
@@ -98,7 +227,7 @@ h2 {
 }
 
 .searchBox {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .searchText {
@@ -109,7 +238,7 @@ h2 {
     padding: 8px 10px;
     padding-right: 40px;
     width: 70%;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .searchBox button {
@@ -118,10 +247,60 @@ h2 {
     font-size: 1rem;
 }
 
+.searchBox button:hover {
+    cursor: pointer;
+}
+
 .container {
     background-image: url(images/pexels-aleksandar-pasaric-1285625.jpg);
     height: 100vh;
     background-size: contain;
     background-position: center;
     background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+
+.loadingComplete {
+    margin-top: 5px;
+    display: none;
+    align-items: flex-end;
+}
+
+.loadCompleteImage {
+    width: 20px;
+}
+
+.loadingComplete span {
+    color: green;
+    margin-left: 3px;
+}
+
+.loadingThrobber {
+    display: none;
+    align-items: flex-end;
+}
+
+.loadingThrobber span {
+    color: lightgray;
+    margin-left: 3px;
+}
+
+.loader {
+    margin-top: 5px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
