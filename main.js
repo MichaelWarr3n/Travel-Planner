@@ -16,8 +16,15 @@ let weatherLoaded = false;
 let covidLoaded = false;
 let venuesLoaded = false;
 
+const resetLoadBools = () => {
+    weatherLoaded = false;
+    covidLoaded = false;
+    venuesLoaded = false;
+}
+
 const loadingStatus = () => {
     resetLoadBools();
+    loadingThrobber.style.visibility = 'visible';
     loadingThrobber.style.display = 'flex';
     loadingComplete.style.display = 'none';
 }
@@ -27,12 +34,6 @@ const completeStatus = () => {
         loadingThrobber.style.display = 'none';
         loadingComplete.style.display = 'flex';
     }
-}
-
-const resetLoadBools = () => {
-    weatherLoaded = false;
-    covidLoaded = false;
-    venuesLoaded = false;
 }
 
 /*--- Weather API ---*/
@@ -74,21 +75,6 @@ const dateToday = () => {
     return d;
 }
 
-const dateTodayISO = () => {
-    let d = new Date();
-    d = d.toISOString();
-    d = d.substr(0, 10);
-    return d;
-}
-
-const lastWeekISO = () => {
-    let d = new Date();
-    d.setDate(d.getDate() - 7);
-    d = d.toISOString();
-    d = d.substr(0, 10);
-    return d;
-}
-
 const renderWeather = weather => {
     const htmlForm = `<h1>${weather.name}, ${weather.sys.country}</h1>
 <h2>${dateToday()}</h2>
@@ -116,12 +102,14 @@ const parameter1 = '?near=';
 
 const getVenues = async () => {
     const city = document.getElementById('city').value;
-    const urlToFetch = url + parameter1 + city + '&limit=3&client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20201020';
+    const urlToFetch = url + parameter1 + city + '&limit=10&client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20201020';
     try {
         const response = await fetch(urlToFetch);
         if (response.ok) {
             const jsonResponse = await response.json();
             const venues = jsonResponse.response.groups[0].items.map(x => x.venue);
+            window.sessionStorage.setItem('venueArray', JSON.stringify(venues));
+            venues.splice(3);
             return venues;
         } else {
             throw new Error('Request Failed!');
@@ -141,7 +129,7 @@ const renderVenues = venues => {
         let htmlForm = `<h1>${x.name}</h1>
 <p>${venueLocType}</p>
 <img src="${venueImgSrc}">
-<h2>Address:</h2>`;
+<h2>Address</h2>`;
         x.location.formattedAddress.forEach(y => {
             htmlForm += `<p>${y}</p>`;
         })
@@ -160,6 +148,21 @@ const displayVenues = venues => {
 }
 
 /*--- Covid API ---*/
+
+const dateTodayISO = () => {
+    let d = new Date();
+    d = d.toISOString();
+    d = d.substr(0, 10);
+    return d;
+}
+
+const lastWeekISO = () => {
+    let d = new Date();
+    d.setDate(d.getDate() - 7);
+    d = d.toISOString();
+    d = d.substr(0, 10);
+    return d;
+}
 
 const getCovid = async () => {
     const city = document.getElementById('city').value;
@@ -212,4 +215,4 @@ inputBox.addEventListener('keypress', function(event) {
     if (event.keyCode === 13) {
         executeSearch();
     }
-})
+});

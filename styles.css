@@ -99,8 +99,7 @@ video {
     width: 40%;
     background-color: rgba(40, 40, 40, 0.8);
     border-radius: 20px;
-    position: relative;
-    top: 40px;
+    margin-top: 40px;
 }
 
 #Covid {
@@ -109,8 +108,7 @@ video {
     width: 30%;
     background-color: rgba(40, 40, 40, 0.8);
     border-radius: 20px;
-    position: relative;
-    top: 40px;
+    margin-top: 40px;
     color: white;
     display: none;
     flex-direction: column;
@@ -137,8 +135,6 @@ video {
     width: 20%;
     background-color: rgba(40, 40, 40, 0.8);
     border-radius: 20px;
-    position: relative;
-    top: 40px;
     color: white;
     text-align: center;
     display: none;
@@ -157,6 +153,10 @@ video {
     margin-bottom: 5px;
 }
 
+#Weather p {
+    margin: 2px 0;
+}
+
 #Weather img {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
@@ -165,8 +165,7 @@ video {
 }
 
 #bigVenueContainer {
-    position: relative;
-    top: 40px;
+    margin-top: 40px;
     display: none;
     padding: 2% 5%;
     margin: 0 50px;
@@ -192,6 +191,7 @@ video {
 .venue:nth-child(2) {
     border-right: solid 2px white;
     border-left: solid 2px white;
+    padding: 0 5px;
     margin: 0 5px;
 }
 
@@ -202,10 +202,12 @@ video {
 
 .venue h1 {
     font-size: 18px;
+    font-weight: 700;
 }
 
 .venue h2 {
     font-size: 16px;
+    text-decoration: underline;
 }
 
 .venue p {
@@ -217,9 +219,15 @@ video {
     margin: 5px 0;
 }
 
+#bigVenueContainer .seeMore {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
 .firstRow {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .secondRow {
@@ -253,17 +261,18 @@ video {
 
 .container {
     background-image: url(images/pexels-aleksandar-pasaric-1285625.jpg);
-    height: 100vh;
+    min-height: 100vh;
     background-size: contain;
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
 }
 
 .loadingComplete {
-    margin-top: 5px;
+    margin: 5px 0;
     display: none;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .loadCompleteImage {
@@ -276,8 +285,9 @@ video {
 }
 
 .loadingThrobber {
-    display: none;
-    align-items: flex-end;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
 }
 
 .loadingThrobber span {
@@ -286,7 +296,7 @@ video {
 }
 
 .loader {
-    margin-top: 5px;
+    margin: 5px 0;
     border: 4px solid #f3f3f3;
     border-top: 4px solid #3498db;
     border-radius: 50%;
@@ -303,4 +313,238 @@ video {
     100% {
         transform: rotate(360deg);
     }
+}
+
+/*-------------------- More Venues Styles ----------------------*/
+
+.backHome {
+    display: flex;
+    align-items: center;
+    margin: 0 50px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+.backSymbol {
+    font-size: 40px;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: rgba(40, 40, 40, 0.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.backSymbol > a {
+    text-decoration: none;
+}
+
+.backSymbol a:link, .backText a:link, .seeMore a:link, .backSymbol a:visited, .backText a:visited, .seeMore a:visited {
+    color: white;
+}
+
+.backSymbol a:active, .backText a:active, .seeMore a:active {
+    color: lightgray;
+}
+
+.backText {
+    font-size: 25px;
+    margin-top: 20px;
+    padding: 19px 0;
+    padding-right: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: rgba(40, 40, 40, 0.8);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#moreVenues {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: wrap;
+    padding: 2% 5%;
+    margin: 0 50px;
+    width: 80%;
+    background-color: rgba(40, 40, 40, 0.8);
+    color: white;
+    border-radius: 20px;
+}
+
+.moreVenue {
+    margin: 1%;
+    text-align: center;
+    width: 17%;
+}
+
+.moreVenue:nth-child(2), .moreVenue:nth-child(4), .moreVenue:nth-child(7), .moreVenue:nth-child(9) {
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+    padding: 0 1%;
+}
+
+.moreVenue h1 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.moreVenue h2 {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.moreVenue p {
+    font-size: 12px;
+}
+
+.moreVenue img {
+    width: 60px;
+    margin: 5px 0;
+}
+
+@media only screen and (max-width: 1120px) {
+    
+    .searchBox button {
+        margin-right: 10px;
+    }
+    
+    .searchBox input {
+        width: 60%;
+    }
+    
+    .searchText h1 {
+        font-size: 22px;
+    }
+    
+    #Covid h2 {
+        font-size: 18px;
+    }
+
+    #Weather h1 {
+        font-size: 22px;
+    }
+
+    #Weather img {
+        width: 80px;
+    }
+    
+    #Weather p {
+        font-size: 12px;
+    }
+    
+    #bigVenueContainer > h1 {
+        font-size: 22px;
+    }
+    
+    .venue h1 {
+        font-size: 16px;
+    }
+
+    .venue h2 {
+        font-size: 14px;
+    }
+
+    .venue p {
+        font-size: 10px;
+    }
+
+    .venue img {
+        width: 50px;
+    }
+    
+    .searchBox input {
+        font-size: 12px;
+    }
+    
+    .searchBox button {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    
+    .firstRow {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .secondRow {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .loadingComplete span {
+        font-size: 14px;
+    }
+    
+    .loadingThrobber span {
+        font-size: 14px;
+    }
+    
+    .loadCompleteImage {
+        width: 16px;
+    }
+    
+    .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        width: 9px;
+        height: 9px;
+    }
+    
+    .searchContainer {
+        width: 80%;
+        margin-left: 0;
+        padding: 2% 5%;
+        text-align: center;
+    }
+    
+    #Covid, #Weather {
+        width: 80%;
+    }
+    
+    #bigVenueContainer {
+        width: 80%;
+        margin: 40px 0;
+    }
+    
+}
+
+@media only screen and (max-width: 380px) {
+    
+    .searchText h1 {
+        font-size: 18px;
+    }
+    
+    #Covid h2 {
+        font-size: 16px;
+    }
+
+    #Weather h1 {
+        font-size: 18px;
+    }
+    
+    #bigVenueContainer > h1 {
+        font-size: 18px;
+    }
+    
+    .venue h1 {
+        font-size: 14px;
+    }
+
+    .venue h2 {
+        font-size: 12px;
+    }
+    
+    .searchBox input {
+        padding: 5px;
+        width: 65%;
+    }
+    
+    .searchBox button {
+        padding: 7px 5px;
+    }
+
 }
