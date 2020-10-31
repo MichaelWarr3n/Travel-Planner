@@ -340,11 +340,18 @@ video {
     text-decoration: none;
 }
 
-.backSymbol a:link, .backText a:link, .seeMore a:link, .backSymbol a:visited, .backText a:visited, .seeMore a:visited {
+.backSymbol a:link,
+.backText a:link,
+.seeMore a:link,
+.backSymbol a:visited,
+.backText a:visited,
+.seeMore a:visited {
     color: white;
 }
 
-.backSymbol a:active, .backText a:active, .seeMore a:active {
+.backSymbol a:active,
+.backText a:active,
+.seeMore a:active {
     color: lightgray;
 }
 
@@ -358,6 +365,12 @@ video {
     background-color: rgba(40, 40, 40, 0.8);
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
+}
+
+.bigMoreVenuesContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 #moreVenues {
@@ -379,7 +392,10 @@ video {
     width: 17%;
 }
 
-.moreVenue:nth-child(2), .moreVenue:nth-child(4), .moreVenue:nth-child(7), .moreVenue:nth-child(9) {
+.moreVenue:nth-child(2),
+.moreVenue:nth-child(4),
+.moreVenue:nth-child(7),
+.moreVenue:nth-child(9) {
     border-right: solid 2px white;
     border-left: solid 2px white;
     padding: 0 1%;
@@ -405,19 +421,19 @@ video {
 }
 
 @media only screen and (max-width: 1120px) {
-    
+
     .searchBox button {
         margin-right: 10px;
     }
-    
+
     .searchBox input {
         width: 60%;
     }
-    
+
     .searchText h1 {
         font-size: 22px;
     }
-    
+
     #Covid h2 {
         font-size: 18px;
     }
@@ -429,95 +445,143 @@ video {
     #Weather img {
         width: 80px;
     }
-    
+
     #Weather p {
         font-size: 12px;
     }
-    
+
     #bigVenueContainer > h1 {
         font-size: 22px;
     }
-    
-    .venue h1 {
+
+    .venue h1, .moreVenue h1 {
         font-size: 16px;
     }
 
-    .venue h2 {
+    .venue h2, .moreVenue h2 {
         font-size: 14px;
     }
 
-    .venue p {
+    .venue p, .moreVenue p {
         font-size: 10px;
     }
 
-    .venue img {
+    .venue img, .moreVenue img {
         width: 50px;
     }
-    
+
     .searchBox input {
         font-size: 12px;
     }
-    
+
     .searchBox button {
         font-size: 12px;
     }
+    
+    #moreVenues {
+        justify-content: center;
+    }
+
+    .moreVenue {
+        width: 20%;
+    }
+
+    .moreVenue:nth-child(6) {
+        border-right: solid 2px white;
+        border-left: solid 2px white;
+        padding: 0 1%;
+    }
+    
+    .moreVenue:nth-child(4), .moreVenue:nth-child(7), .moreVenue:nth-child(9) {
+        border: none;
+        padding: 0;
+    }
+    
+    .moreVenue:nth-child(4), .moreVenue:nth-child(8), .moreVenue:nth-child(10) {
+        border-left: solid 2px white;
+        padding-left: 1%;
+    }
+    
+    .moreVenue:nth-child(10) {
+        padding-left: 3%;
+    }
+
 }
 
 @media only screen and (max-width: 860px) {
-    
+
     .firstRow {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .secondRow {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .loadingComplete span {
         font-size: 14px;
     }
-    
+
     .loadingThrobber span {
         font-size: 14px;
     }
-    
+
     .loadCompleteImage {
         width: 16px;
     }
-    
+
     .loader {
         border: 4px solid #f3f3f3;
         border-top: 4px solid #3498db;
         width: 9px;
         height: 9px;
     }
-    
+
     .searchContainer {
         width: 80%;
         margin-left: 0;
         padding: 2% 5%;
         text-align: center;
     }
-    
-    #Covid, #Weather {
+
+    #Covid,
+    #Weather {
         width: 80%;
     }
-    
+
     #bigVenueContainer {
         width: 80%;
         margin: 40px 0;
     }
     
+    .moreVenue {
+        width: 45%;
+    }
+    
+    .moreVenue:nth-child(2), .moreVenue:nth-child(6) {
+        border-right: none;
+        border-left: solid 2px white;
+        padding-right: 0;
+    }
+    
+    .backSymbol {
+        font-size: 30px;
+    }
+    
+    .backText {
+        font-size: 16px;
+    }
+
 }
 
 @media only screen and (max-width: 380px) {
-    
+
     .searchText h1 {
         font-size: 18px;
     }
-    
+
     #Covid h2 {
         font-size: 16px;
     }
@@ -525,24 +589,32 @@ video {
     #Weather h1 {
         font-size: 18px;
     }
-    
+
     #bigVenueContainer > h1 {
         font-size: 18px;
     }
-    
+
     .venue h1 {
         font-size: 14px;
     }
+    
+    .moreVenue h1 {
+        font-size: 12px;
+    }
 
-    .venue h2 {
+    .venue h2, .moreVenue h2 {
         font-size: 12px;
     }
     
+    .moreVenue p {
+        font-size: 8px;
+    }
+
     .searchBox input {
         padding: 5px;
         width: 65%;
     }
-    
+
     .searchBox button {
         padding: 7px 5px;
     }

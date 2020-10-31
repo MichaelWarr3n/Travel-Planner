@@ -38,7 +38,6 @@ const displayMoreVenues = venues => {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('hello world');
     let data = JSON.parse(window.sessionStorage.getItem('venueArray'));
     displayMoreVenues(data);
 })
