@@ -253,6 +253,8 @@ video {
     padding: 10px 5px;
     border-radius: 10px;
     font-size: 1rem;
+    background-color: rgba(255,255,255,0.4);
+    color: white;
 }
 
 .searchBox button:hover {
@@ -590,10 +592,22 @@ video {
 
 }
 
+@media only screen and (max-width: 500px) {
+    
+    .searchBox input {
+        font-size: 10px;
+    }
+    
+    .searchText h1 {
+        margin-top: 10px;
+    }
+
+}
+
 @media only screen and (max-width: 380px) {
 
     .searchText h1 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     #Covid h2 {
@@ -628,6 +642,7 @@ video {
     .searchBox input {
         padding: 5px;
         width: 65%;
+        font-size: 9px;
     }
 
     .searchBox button {
