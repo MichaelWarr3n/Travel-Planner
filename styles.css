@@ -132,6 +132,7 @@ video {
 #Weather {
     padding: 2% 5%;
     margin: 0 50px;
+    margin-bottom: 40px;
     width: 20%;
     background-color: rgba(40, 40, 40, 0.8);
     border-radius: 20px;
@@ -169,6 +170,7 @@ video {
     display: none;
     padding: 2% 5%;
     margin: 0 50px;
+    margin-bottom: 40px;
     width: 60%;
     background-color: rgba(40, 40, 40, 0.8);
     color: white;
@@ -253,8 +255,8 @@ video {
     padding: 10px 5px;
     border-radius: 10px;
     font-size: 1rem;
-    background-color: rgba(255,255,255,0.4);
-    color: white;
+    background-color: white;
+    color: Black;
 }
 
 .searchBox button:hover {
@@ -560,6 +562,10 @@ video {
     #Covid,
     #Weather {
         width: 80%;
+    }
+    
+    #Weather {
+        margin-bottom: 0;
     }
 
     #bigVenueContainer {

@@ -188,9 +188,9 @@ const sevenDayAverage = (dayOne, daySeven) => {
 }
 
 const renderCovid = covid => {
-    const htmlFormat = `<h2>Daily average of new Covid-19 cases in ${covidCountry}:</h2>
+    const htmlFormat = `<h2>New Covid-19 cases in ${covidCountry}:</h2>
 <h1>${sevenDayAverage(covid[0].Cases, covid[6].Cases)}</h1>
-<p>(based off the last 7 days)</p>`;
+<p>(Daily average based on the last 7 days)</p>`;
     return htmlFormat;
 }
 
