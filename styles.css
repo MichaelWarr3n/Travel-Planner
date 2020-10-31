@@ -534,7 +534,7 @@ video {
     }
     
     .searchBox button {
-        padding: 9px 5px;
+        padding: 10px 5px;
     }
 
     .loadingComplete span {
@@ -608,8 +608,13 @@ video {
         font-size: 10px;
     }
     
+    .searchBox button {
+        font-size: 10px;
+    }
+    
     .searchText h1 {
         margin-top: 10px;
+        font-size: 20px;
     }
 
 }
@@ -657,6 +662,7 @@ video {
     
     .searchBox button {
         padding: 7px 5px;
+        font-size: 9px;
     }
 
 }
