@@ -384,6 +384,7 @@ video {
     background-color: rgba(40, 40, 40, 0.8);
     color: white;
     border-radius: 20px;
+    margin-bottom: 40px;
 }
 
 .moreVenue {
@@ -454,19 +455,23 @@ video {
         font-size: 22px;
     }
 
-    .venue h1, .moreVenue h1 {
+    .venue h1,
+    .moreVenue h1 {
         font-size: 16px;
     }
 
-    .venue h2, .moreVenue h2 {
+    .venue h2,
+    .moreVenue h2 {
         font-size: 14px;
     }
 
-    .venue p, .moreVenue p {
+    .venue p,
+    .moreVenue p {
         font-size: 10px;
     }
 
-    .venue img, .moreVenue img {
+    .venue img,
+    .moreVenue img {
         width: 50px;
     }
 
@@ -477,7 +482,7 @@ video {
     .searchBox button {
         font-size: 12px;
     }
-    
+
     #moreVenues {
         justify-content: center;
     }
@@ -491,17 +496,21 @@ video {
         border-left: solid 2px white;
         padding: 0 1%;
     }
-    
-    .moreVenue:nth-child(4), .moreVenue:nth-child(7), .moreVenue:nth-child(9) {
+
+    .moreVenue:nth-child(4),
+    .moreVenue:nth-child(7),
+    .moreVenue:nth-child(9) {
         border: none;
         padding: 0;
     }
-    
-    .moreVenue:nth-child(4), .moreVenue:nth-child(8), .moreVenue:nth-child(10) {
+
+    .moreVenue:nth-child(4),
+    .moreVenue:nth-child(8),
+    .moreVenue:nth-child(10) {
         border-left: solid 2px white;
         padding-left: 1%;
     }
-    
+
     .moreVenue:nth-child(10) {
         padding-left: 3%;
     }
@@ -555,23 +564,28 @@ video {
         width: 80%;
         margin: 40px 0;
     }
-    
+
     .moreVenue {
         width: 45%;
     }
-    
-    .moreVenue:nth-child(2), .moreVenue:nth-child(6) {
+
+    .moreVenue:nth-child(10) {
+        padding-left: 1%;
+    }
+
+    .moreVenue:nth-child(2),
+    .moreVenue:nth-child(6) {
         border-right: none;
         border-left: solid 2px white;
         padding-right: 0;
     }
-    
+
     .backSymbol {
         font-size: 30px;
     }
-    
+
     .backText {
-        font-size: 16px;
+        font-size: 15px;
     }
 
 }
@@ -597,15 +611,16 @@ video {
     .venue h1 {
         font-size: 14px;
     }
-    
+
     .moreVenue h1 {
         font-size: 12px;
     }
 
-    .venue h2, .moreVenue h2 {
+    .venue h2,
+    .moreVenue h2 {
         font-size: 12px;
     }
-    
+
     .moreVenue p {
         font-size: 8px;
     }
