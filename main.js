@@ -38,7 +38,7 @@ const completeStatus = () => {
 
 /*--- Weather API ---*/
 
-const openWeatherKey = env.WEATHER_KEY;
+const openWeatherKey = process.env.WEATHER_KEY;
 const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 
@@ -96,7 +96,7 @@ const displayWeather = weather => {
 /*--- Venues API ---*/
 
 const clientId = 'C2BNJQAEV5MB3FG4JT1JFXH45Z3ISK1BQ50GLAVTJ5IFOIGC';
-const clientSecret = env.VENUE_KEY;
+const clientSecret = process.env.VENUE_KEY;
 const url = 'https://api.foursquare.com/v2/venues/explore';
 const parameter1 = '?near=';
 
