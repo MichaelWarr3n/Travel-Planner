@@ -38,15 +38,10 @@ const completeStatus = () => {
 
 /*--- Weather API ---*/
 
-const openWeatherKey = 'f72d9611fcced5a7d6f0d0b552e4e5b3';
-const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
-
-
 const getWeather = async () => {
     const city = document.getElementById('city').value;
-    const urlToFetch = weatherUrl + '?q=' + city + '&appid=' + openWeatherKey
     try {
-        const response = await fetch(urlToFetch);
+        const response = await fetch(`http://localhost:8080/api/openweather/${city}`);
         if (response.ok) {
             const jsonResponse = await response.json();
             return jsonResponse;
@@ -95,17 +90,12 @@ const displayWeather = weather => {
 
 /*--- Venues API ---*/
 
-const clientId = 'C2BNJQAEV5MB3FG4JT1JFXH45Z3ISK1BQ50GLAVTJ5IFOIGC';
-const clientSecret = 'AVBAW1EIH3HVGFYGBPGYBNMR0SEQB4LEL3KAE5JH5GVNLYUU';
-const url = 'https://api.foursquare.com/v2/venues/explore';
-const parameter1 = '?near=';
-
 const getVenues = async () => {
-    const city = document.getElementById('city').value;
-    const urlToFetch = url + parameter1 + city + '&limit=10&client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20201020';
+    const city = document.getElementById('city').value;;
     try {
-        const response = await fetch(urlToFetch);
+        const response = await fetch(`http://localhost:8080/api/foursquare/${city}`);
         if (response.ok) {
+            console.log(response);
             const jsonResponse = await response.json();
             const venues = jsonResponse.response.groups[0].items.map(x => x.venue);
             window.sessionStorage.setItem('venueArray', JSON.stringify(venues));
