@@ -41,7 +41,7 @@ const completeStatus = () => {
 const getWeather = async () => {
     const city = document.getElementById('city').value;
     try {
-        const response = await fetch(`http://localhost:8080/api/openweather/${city}`);
+        const response = await fetch(`https://travel-tracker1.herokuapp.com/api/openweather/${city}`);
         if (response.ok) {
             const jsonResponse = await response.json();
             return jsonResponse;
@@ -93,7 +93,7 @@ const displayWeather = weather => {
 const getVenues = async () => {
     const city = document.getElementById('city').value;;
     try {
-        const response = await fetch(`http://localhost:8080/api/foursquare/${city}`);
+        const response = await fetch(`https://travel-tracker1.herokuapp.com/api/foursquare/${city}`);
         if (response.ok) {
             console.log(response);
             const jsonResponse = await response.json();
